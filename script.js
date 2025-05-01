@@ -311,18 +311,144 @@ for (let i = 1; i <=100; i++) {
     }
 }
 
-*/
-
 // 9. while Loop
 // Write a while loop using the already declared variable userNumber.
 // - check if userNumber is btwn 1 and 100
 // - if it is, create a while loop that prints all integers starting with userNumber and ending with 100
 // - if not, print "Your number was not between 1 and 100." to the console.
+// Had to Google and use AI to help write this. Needed to nest the while loop inside an if statement; kept trying to nest if statement in while loop.
 
-let userNumber = 101
+let userNumber = 99
 
 let i = userNumber
-while (i >= 1 && i <= 100) {
+if (i >= 1 && i <= 100) {
+    while (i <= 100) {
     console.log(i);
-    i++
-} console.log("Your number was not between 1 and 100.");
+    i++;
+    }
+} else {
+    console.log("Your number was not between 1 and 100.");
+}
+
+Instructor Solution:
+var counter = userNumber;
+if ( userNumber <= 100 && userNumber >= 1 ) {
+    while ( counter <= 100 ) {
+        console.log(counter++);
+    }
+} else {
+    console.log("Your number was not between 1 and 100.");
+}
+
+// 11. Multiplication Table: using the already declared variable num, create a for loop that prints out a multiplication table for num from 1 through 10.
+
+let num = 10
+let i = num
+
+for(let i = 1; i <=10; i++){
+    console.log(num + " x " + i + " = " + (num * i))
+}
+
+Instructor Solution:
+for(var i = 1; i <= 10; i++) {
+    console.log(num +" x " + i + " = " + (num*i) );
+}
+
+// 13. do while Loop: create a do while loop that will print the already declared variable userNumber.
+// - after printing, add 6 to userNumber each time through the loop
+// - stop the loop once userNumber is greater than or equal to 100
+// - use console.log() to print the requested info
+
+let userNumber = 9
+
+do {
+    console.log(userNumber);
+    userNumber+=6;
+} while (userNumber <= 100);
+
+Instructor Solution:
+do {
+    console.log(userNumber);
+    userNumber = userNumber + 6;
+} while(userNumber <= 100);
+
+// 15. for Loop: write a for loop that prints every third number from 0 up to and including 99, using console.log ().
+// - use the modulo operator (%) to check if number is divisible by 3
+
+for (let i = 0; i <= 99; i++) {
+    if(i % 3 === 0) {
+        console.log(i);
+    }
+}
+
+Instructor Solution:
+for(var i = 0; i <= 99; i++){
+    if(i % 3 === 0){
+        console.log(i);
+    }
+}
+
+// 17. Fill Up a Bowl with Rice: Using the supplied variables requiredCupsOfRice and currentCupsOfRice, create a loop of your choice that will add cups of rice to a bowl.
+// - the value of currentCupsOfRice has been declared and initialized to 0, and will represent the current number of cups in bowl
+// - for every iteration, increment currentCupsOfRice by 1
+// - each time a cup of rice is added, print "The bowl contains " + currentCupsOfRice + " cups of rice."
+// - once the number of cups required has been reached, print "We have enough rice!"
+// - Note: we don't need to know if the bowl is empty
+
+let currentCupsOfRice = 0
+let requiredCupsOfRice = 3
+
+if (currentCupsOfRice <= requiredCupsOfRice) {
+    while (currentCupsOfRice < requiredCupsOfRice) {
+        currentCupsOfRice += 1;
+        console.log("The bowl contains " + currentCupsOfRice + " cups of rice.");
+    }
+} console.log("We have enough rice!");
+
+Instructor Solution:
+while(currentCupsOfRice != requiredCupsOfRice){
+    console.log('The bowl contains ' + (++currentCupsOfRice) + ' cups of rice.');
+}
+console.log('We have enough rice!');
+*/
+
+// 19. Let's play a game: This is an ADVANCED problem!
+// Using a for loop, and the two already declared variables points and pointsReset, create a game.
+// Rules of this Game:
+// - the game will consist of 100 turns
+// - on an even turn (if the number of turns is even), 5 points are added to your score
+// - on an odd turn (if the number of turns is odd), you gain 3 points instead
+// - if ever your score is equal to 125, your points total will reset back down to 25 points. This will only be allowed to happen once (use the variable pointsReset to keep track)
+// - the game will run as long as both of the following 2 conditions are true:
+//    1) the game has made it through 100 turns or less
+//    2) you reach 290 points or more, whichever comes first
+
+let pointsReset = false
+let points = 0
+
+for (let turns = 0; points <= 290 && turns <= 100; turns++) {
+    if (points === 125 && pointsReset === false) {
+        points = 25;
+        pointsReset = true;
+    } else if (turns % 2 === 0) {
+        points += 5;
+    } else {
+        points += 3;
+    }
+    console.log("Turns: " + turns + " Score: " + points);
+}
+/*
+Instructor Solution:
+for (var i = 0; i < 100 && points < 290; i++){
+    if(points == 125 && pointsReset === false){
+        points = 25;
+        pointsReset = true;
+    } else if (i % 2 === 0){
+        points = points + 5;
+    } else {
+        points = points + 3;
+    }
+    
+    console.log("Turns: " + i + " Score: " + points)
+}
+*/
